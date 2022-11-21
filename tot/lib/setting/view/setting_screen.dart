@@ -96,23 +96,45 @@ class _SettingScreenState extends State<SettingScreen> {
               title: Text(!FirebaseAuth.instance.currentUser!.isAnonymous
                   ? '로그아웃'
                   : '로그인'),
-              onPressed: (value) async {
+              onPressed: (value) {
                 if (FirebaseAuth.instance.currentUser!.isAnonymous) {
                   Get.offAll(() => FirstPageView());
                 } else {
-                  pd.show(max: 100, msg: '로그아웃 하는 중...');
-                  pd.update(value: 25);
-                  await FirebaseAuth.instance.signOut();
-                  pd.update(value: 50);
-                  await FirebaseAuth.instance.signInAnonymously();
-                  pd.update(value: 75);
-                  await API.changeDioToken();
-                  pd.update(value: 100);
-                  BookmarkCache.to.bookmarks.clear();
-                  userFilterKey = {};
-                  pd.close();
                   Future.delayed(
-                      Duration.zero, () => Get.offAll(() => FirstPageView()));
+                    Duration.zero,
+                        () => showPlatformDialog(
+                      context: context,
+                      builder: (_) => PlatformAlertDialog(
+                        title: Text(
+                          '정말로 로그아웃 하시겠습니까?',
+                        ),
+                        actions: <Widget>[
+                          PlatformDialogAction(
+                            child: PlatformText("취소"),
+                            onPressed: () => Get.back(),
+                          ),
+                          PlatformDialogAction(
+                            child: PlatformText("로그아웃", style: TextStyle(color: Colors.red),),
+                            onPressed: () async {
+                              pd.show(max: 100, msg: '로그아웃 하는 중...');
+                              pd.update(value: 25);
+                              await FirebaseAuth.instance.signOut();
+                              pd.update(value: 50);
+                              await FirebaseAuth.instance.signInAnonymously();
+                              pd.update(value: 75);
+                              await API.changeDioToken();
+                              pd.update(value: 100);
+                              BookmarkCache.to.bookmarks.clear();
+                              userFilterKey = {};
+                              pd.close();
+                              Future.delayed(
+                                  Duration.zero, () => Get.offAll(() => FirstPageView()));
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
                 }
               },
             ),
@@ -130,28 +152,25 @@ class _SettingScreenState extends State<SettingScreen> {
                       builder: (_) => PlatformAlertDialog(
                         title: Text(
                           '정말로 회원탈퇴 하시겠습니까?',
-                          style: TextStyle(
-                              fontSize: 17.sp, fontWeight: FontWeight.w600),
                         ),
                         content: Text(
-                          '탈퇴하시면 모든 데이터는 복구가 불가능합니다.',
-                          style: TextStyle(fontSize: 13.sp),
+                          '탈퇴시 모든 데이터는 복구가 불가능합니다.',
                         ),
                         actions: <Widget>[
                           PlatformDialogAction(
-                            child: PlatformText("네"),
+                            child: PlatformText("취소"),
+                            onPressed: () => Get.back(),
+                          ),
+                          PlatformDialogAction(
+                            child: PlatformText("회원탈퇴", style: TextStyle(color: Colors.red),),
                             onPressed: () async {
                               await tokenCheck(() => API.deleteUser());
                               await FirebaseAuth.instance.signOut();
                               await FirebaseAuth.instance.signInAnonymously();
                               await API.changeDioToken();
                               Future.delayed(Duration.zero,
-                                  () => Get.offAll(() => FirstPageView()));
+                                      () => Get.offAll(() => FirstPageView()));
                             },
-                          ),
-                          PlatformDialogAction(
-                            child: PlatformText("아니오"),
-                            onPressed: () => Get.back(),
                           ),
                         ],
                       ),

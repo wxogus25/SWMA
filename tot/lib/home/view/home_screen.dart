@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:tot/common/const/padding.dart';
 import 'package:tot/common/data/API.dart';
 import 'package:tot/common/data/chart_data.dart';
 import 'package:tot/home/component/home_hotnew_button.dart';
 import 'package:tot/home/component/home_user_keywords.dart';
+import 'package:tot/webview.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import '../../home/component/home_main_keyword_list.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late WebViewController _controller;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -63,7 +73,8 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(
                     color: Color(0xFF1A63D9),
                     fontSize: 32.sp,
-                    fontWeight: FontWeight.w600, height: 1.2),
+                    fontWeight: FontWeight.w600,
+                    height: 1.2),
               ),
             ),
             width: double.infinity,
@@ -82,6 +93,73 @@ class HomeScreen extends StatelessWidget {
                   data: snapshot.data!,
                 );
               },
+            ),
+          ),
+          SizedBox(
+            height: 100.h,
+          ),
+          Container(
+            color: Colors.grey.shade100,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 15.h),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        child: Text(
+                          "서비스 이용약관",
+                          style: TextStyle(
+                              fontSize: 13.sp, fontWeight: FontWeight.w600),
+                        ),
+                        onTap: () {
+                          Get.to(WebviewPage(t: "tot2",));
+                        },
+                      ),
+                      Text(" | "),
+                      GestureDetector(
+                        child: Text(
+                          "개인정보처리방침",
+                          style: TextStyle(
+                              fontSize: 13.sp, fontWeight: FontWeight.w600),
+                        ),
+                        onTap: () {
+                          Get.to(WebviewPage(t: "tot",));
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "(SWM) 예티와 아이들",
+                        style: TextStyle(fontSize: 13.sp),
+                      ),
+                      Text(" | "),
+                      Text(
+                        "대표 이수민",
+                        style: TextStyle(fontSize: 13.sp),
+                      ),
+                      Text(" | "),
+                      Text(
+                        "02-6933-0702 ~ 5",
+                        style: TextStyle(fontSize: 13.sp),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "서울특별시 강남구 테헤란로 311 아남타워빌딩 7층 (우편번호 : 06151)",
+                    style: TextStyle(fontSize: 13.sp),
+                  ),
+                  Text(
+                    "min001017@hanyang.ac.kr",
+                    style: TextStyle(fontSize: 13.sp),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

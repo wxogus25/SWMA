@@ -24,19 +24,34 @@ class _NotifyViewState extends State<NotifyView> {
   List<Map<String, dynamic>> test = [
     {
       "id": 123451,
-      "title": "가나다라마바사아자차카타파하가나다라마바사아자차카타파하",
-      "time": "2022-04-24T14:21:00",
+      "title": "내년 가계 이자부담 132만원 는다",
+      "time": "2022-11-18T18:21:03",
     },
     {
       "id": 41341,
-      "title": "차카타파하가나다라마바사아자차카타파하",
-      "time": "2022-02-24T14:21:00",
+      "title": "달러도 맛보고 주식도 맛보고 '자산 코스요리' 골고루 드세요",
+      "time": "2022-11-18T16:05:39",
     },
     {
       "id": 5123212,
-      "title": "라마바사아자차카타파하가나다라마바사아자차카타파하",
-      "time": "2022-01-24T14:21:00",
-    }
+      "title": "연말 총 4조원 규모 종부세 고지서 발송...국민 절반 이상 \"완화 공감\"",
+      "time": "2022-11-18T10:45:00",
+    },
+    {
+      "id": 31341,
+      "title": "\"이건 지키려했는데\"...동네사장님들, 최후보루마저 손댄다",
+      "time": "2022-11-17T20:16:31",
+    },
+    {
+      "id": 4141531,
+      "title": "돈줄 막힌 자영업자, 은퇴자금까지 꺼내쓴다",
+      "time": "2022-11-17T17:59:00",
+    },
+    {
+      "id": 13456745,
+      "title": "금호석유화학, 2030년까지 업무용 차령 친환경차로 전부 바꾼다",
+      "time": "2022-11-17T16:06:10",
+    },
   ];
 
   @override
@@ -153,24 +168,22 @@ class _NotifyViewState extends State<NotifyView> {
         builder: (_) => PlatformAlertDialog(
           title: Text(
             '모든 알림을 지우시겠습니까?',
-            style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w600),
           ),
           content: Text(
             '지운 알림은 복구가 불가능합니다.',
-            style: TextStyle(fontSize: 13.sp),
           ),
           actions: <Widget>[
             PlatformDialogAction(
-              child: PlatformText("네"),
+              child: PlatformText("취소"),
+              onPressed: () => Get.back(),
+            ),
+            PlatformDialogAction(
+              child: PlatformText("지우기"),
               onPressed: () async {
                 await AppController.storage.write(key: "notify", value: "[]");
                 deleteSign = true;
                 Get.back();
               },
-            ),
-            PlatformDialogAction(
-              child: PlatformText("아니오"),
-              onPressed: () => Get.back(),
             ),
           ],
         ),

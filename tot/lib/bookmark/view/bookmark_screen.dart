@@ -33,20 +33,18 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
           builder: (_) => PlatformAlertDialog(
             title: Text(
               '로그인 후 이용 할 수 있습니다.',
-              style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w600),
             ),
             content: Text(
               '게스트는 이용 할 수 없는 기능입니다.\n로그인 하시겠습니까?',
-              style: TextStyle(fontSize: 13.sp),
             ),
             actions: <Widget>[
               PlatformDialogAction(
-                child: PlatformText("네"),
-                onPressed: () => Get.offAll(FirstPageView()),
+                child: PlatformText("취소"),
+                onPressed: () => Get.offAll(RootTab()),
               ),
               PlatformDialogAction(
-                child: PlatformText("아니오"),
-                onPressed: () => Get.offAll(RootTab()),
+                child: PlatformText("로그인"),
+                onPressed: () => Get.offAll(FirstPageView()),
               ),
             ],
           ),

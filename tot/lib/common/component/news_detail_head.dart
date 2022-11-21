@@ -162,7 +162,8 @@ class _NewsDetailHeadState extends State<NewsDetailHead> {
               GestureDetector(
                   onTap: () {
                     launchUrl(Uri.parse(
-                        'https://www.mk.co.kr/news/economy/${widget.id}'));
+                      'https://www.mk.co.kr/news/economy/${widget.id}',
+                    ), mode: LaunchMode.externalApplication);
                   },
                   child: Icon(
                     Icons.link,

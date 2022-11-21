@@ -45,7 +45,7 @@ class NewsData {
       stock_prob = null;
     } else{
       data['stock_prob'].keys.toList().forEach((e) {
-        stock_prob![e.toString()] = data['stock_prob'][e.toString()];
+        stock_prob![e.toString()] = double.parse(data['stock_prob'][e.toString()].toStringAsFixed(2));
       });
     }
     var highlight_idx;

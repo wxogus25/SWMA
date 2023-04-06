@@ -229,13 +229,14 @@ class _WeeklyGraphState extends State<_WeeklyGraph> {
           primaryXAxis: CategoryAxis(
             labelPlacement: LabelPlacement.onTicks,
             placeLabelsNearAxisLine: true,
-            crossesAt: 0,
+            crossesAt: -1,
           ),
           primaryYAxis: NumericAxis(
             minimum: -1,
             maximum: 1,
+            interval: 1,
             crossesAt: 0,
-            interval: 0.5,
+            // isVisible:false,
             placeLabelsNearAxisLine: false,
             plotBands: [
               PlotBand(
@@ -247,7 +248,9 @@ class _WeeklyGraphState extends State<_WeeklyGraph> {
           trackballBehavior: _trackballBehavior,
           series: <LineSeries<ChartData, String>>[
             LineSeries<ChartData, String>(
+              width: 3.0,
               dataSource: widget.data,
+              markerSettings: MarkerSettings(isVisible: true),
               color: Color(0xFF5E82E5),
               xValueMapper: (ChartData sales, _) =>
                   '${sales.date.month}/${sales.date.day}',

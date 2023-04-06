@@ -46,6 +46,7 @@ class _NewsDetailViewState extends State<NewsDetailView> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.id);
     final BookmarkCache c = BookmarkCache.to;
     return DefaultLayout(
       isExtraPage: true,

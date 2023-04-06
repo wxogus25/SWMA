@@ -76,24 +76,22 @@ class _KeywordMapScreenState extends State<KeywordMapScreen> {
         SizedBox(
           height: 160.h,
         ),
-        Container(
-          width: 260.w,
-          child: Row(
-            children: [
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _keywordButton(widget.keyword, true),
-                  ],
-                ),
+        Row(
+          children: [
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _keywordButton(widget.keyword, true),
+                  SizedBox(width: 20.w,),
+                  Text(
+                    '관련',
+                    style: TextStyle(fontSize: 30.sp),
+                  ),
+                ],
               ),
-              Text(
-                '관련',
-                style: TextStyle(fontSize: 30.sp),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
         SizedBox(
           height: 10.h,

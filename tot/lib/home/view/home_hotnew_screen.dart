@@ -137,7 +137,7 @@ class _HomeHotNewScreenState extends State<HomeHotNewScreen> {
                           height: 5.h,
                         ),
                         Text(
-                          "${t.year}.${t.month.toString().padLeft(2, '0')}.${t.day.toString().padLeft(2, '0')} ${t.hour.toString().padLeft(2, '0')}:${t.minute} 에 업데이트 되었습니다.",
+                          "${t.year}.${t.month.toString().padLeft(2, '0')}.${t.day.toString().padLeft(2, '0')} ${t.hour.toString().padLeft(2, '0')}:${t.minute.toString().padLeft(2, '0')} 에 업데이트 되었습니다.",
                           style: TextStyle(
                             fontSize: 13.sp,
                             color: SMALL_FONT_COLOR,

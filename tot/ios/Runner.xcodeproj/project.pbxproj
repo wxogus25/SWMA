@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
-		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
-		920A533028F3222400DFEDA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 920A532F28F3222400DFEDA7 /* GoogleService-Info.plist */; };
-		924A54C52917D9F5002B57E0 /* FBAEMKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54BF2917D9F5002B57E0 /* FBAEMKit.xcframework */; };
 		924A54C62917D9F5002B57E0 /* FBAEMKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54BF2917D9F5002B57E0 /* FBAEMKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		924A54C72917D9F5002B57E0 /* FBSDKCoreKit_Basics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54C02917D9F5002B57E0 /* FBSDKCoreKit_Basics.xcframework */; };
 		924A54C82917D9F5002B57E0 /* FBSDKCoreKit_Basics.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54C02917D9F5002B57E0 /* FBSDKCoreKit_Basics.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		924A54C92917D9F5002B57E0 /* FBSDKCoreKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54C12917D9F5002B57E0 /* FBSDKCoreKit.xcframework */; };
 		924A54CA2917D9F5002B57E0 /* FBSDKCoreKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54C12917D9F5002B57E0 /* FBSDKCoreKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		924A54CD2917D9F5002B57E0 /* FBSDKLoginKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54C32917D9F5002B57E0 /* FBSDKLoginKit.xcframework */; };
 		924A54CE2917D9F5002B57E0 /* FBSDKLoginKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54C32917D9F5002B57E0 /* FBSDKLoginKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		92841E2D292E1C5C00091D7A /* FBAEMKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54BF2917D9F5002B57E0 /* FBAEMKit.xcframework */; };
+		92841E2E292E1C5C00091D7A /* FBSDKCoreKit_Basics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54C02917D9F5002B57E0 /* FBSDKCoreKit_Basics.xcframework */; };
+		92841E2F292E1C5C00091D7A /* FBSDKCoreKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54C12917D9F5002B57E0 /* FBSDKCoreKit.xcframework */; };
+		92841E30292E1C6200091D7A /* FBSDKLoginKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924A54C32917D9F5002B57E0 /* FBSDKLoginKit.xcframework */; };
+		92841E31292E1F2B00091D7A /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
+		92841E32292E1F3000091D7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 920A532F28F3222400DFEDA7 /* GoogleService-Info.plist */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
@@ -75,10 +75,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				924A54C52917D9F5002B57E0 /* FBAEMKit.xcframework in Frameworks */,
-				924A54CD2917D9F5002B57E0 /* FBSDKLoginKit.xcframework in Frameworks */,
-				924A54C72917D9F5002B57E0 /* FBSDKCoreKit_Basics.xcframework in Frameworks */,
-				924A54C92917D9F5002B57E0 /* FBSDKCoreKit.xcframework in Frameworks */,
+				92841E30292E1C6200091D7A /* FBSDKLoginKit.xcframework in Frameworks */,
+				92841E2D292E1C5C00091D7A /* FBAEMKit.xcframework in Frameworks */,
+				92841E2E292E1C5C00091D7A /* FBSDKCoreKit_Basics.xcframework in Frameworks */,
+				92841E2F292E1C5C00091D7A /* FBSDKCoreKit.xcframework in Frameworks */,
 				B2B6B70D4CEC297AE1E94439 /* libPods-Runner.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,9 +221,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92841E32292E1F3000091D7A /* GoogleService-Info.plist in Resources */,
+				92841E31292E1F2B00091D7A /* AppFrameworkInfo.plist in Resources */,
 				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
-				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
-				920A533028F3222400DFEDA7 /* GoogleService-Info.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
 			);
@@ -261,7 +261,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin";
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin\n";
 		};
 		3D14FFAC09B10BEB740911FB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

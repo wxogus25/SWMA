@@ -1,7 +1,3 @@
-/graph/
-/ios/
-startup/
-
 # Miscellaneous
 *.class
 *.log
@@ -46,10 +42,7 @@ app.*.symbols
 app.*.map.json
 
 # Android Studio will place build artifacts here
-android/app/debug
-android/app/profile
-android/app/release
-android/app/res/values/strings.xml
-android/app/src/main/res/values/strings.xml
+tot/android/app/
 google-services.json
 firebase_options.dart
+secure.dart

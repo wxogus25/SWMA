@@ -6,9 +6,7 @@ import 'package:tot/common/const/padding.dart';
 import 'package:tot/common/data/API.dart';
 import 'package:tot/common/data/chart_data.dart';
 import 'package:tot/home/component/home_hotnew_button.dart';
-import 'package:tot/home/component/home_user_keywords.dart';
 import 'package:tot/webview.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../home/component/home_main_keyword_list.dart';
 
@@ -114,7 +112,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 13.sp, fontWeight: FontWeight.w600),
                         ),
                         onTap: () {
-                          Get.to(WebviewPage(t: "tot2",));
+                          Get.to(WebviewPage(
+                            t: "tot2",
+                          ));
                         },
                       ),
                       Text(" | "),
@@ -125,7 +125,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 13.sp, fontWeight: FontWeight.w600),
                         ),
                         onTap: () {
-                          Get.to(WebviewPage(t: "tot",));
+                          Get.to(WebviewPage(
+                            t: "tot",
+                          ));
                         },
                       ),
                     ],

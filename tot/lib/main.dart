@@ -14,10 +14,11 @@ import 'package:tot/common/view/first_page_view.dart';
 import 'package:tot/common/view/notify_view.dart';
 import 'package:tot/common/view/root_tab.dart';
 import 'package:tot/firebase_options.dart';
+import 'package:tot/secure.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  kakao.KakaoSdk.init(nativeAppKey: '65883b79301a6a8e7b88ab503dfc2959');
+  kakao.KakaoSdk.init(nativeAppKey: NATIVEAPPKEY);
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

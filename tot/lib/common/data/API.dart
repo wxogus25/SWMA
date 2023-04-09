@@ -1,15 +1,13 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tot/common/data/chart_data.dart';
 import 'package:tot/common/data/news_tile_data.dart';
-
+import 'package:tot/secure.dart';
 import 'news_data.dart';
 
 Dio dioSetting() {
   final dio = Dio();
-  dio.options.baseUrl = "http://43.201.79.31:8000";
+  dio.options.baseUrl = URL;
   dio.options.headers['accept'] = 'application/json';
   dio.options.headers['Content-Type'] = 'application/json';
   return dio;
@@ -43,10 +41,10 @@ abstract class API {
   static Future<Map<String, dynamic>> getNewsListHot({int news_id = -1}) async {
     final response = await dio.get("/news/list-hot/${news_id}");
     final data = {
-      "data" : List<Map<String, dynamic>>.from(response.data['data'])
+      "data": List<Map<String, dynamic>>.from(response.data['data'])
           .map((e) => NewsTileData.fromResponse(e))
           .toList(),
-      "update_time" : response.data['update_time'],
+      "update_time": response.data['update_time'],
     };
     return data;
   }
@@ -111,7 +109,8 @@ abstract class API {
       double negative = x[e]![2].toDouble();
       double t = (positive + negative) == 0.0
           ? 0.0
-          : (positive - negative) / (positive + negative + (neutral < 10 ? 10.0 : neutral));
+          : (positive - negative) /
+              (positive + negative + (neutral < 10 ? 10.0 : neutral));
       ans.add(ChartData(DateTime.parse(e), neutral, positive, negative, t));
     }
     return ans.reversed.toList();

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:tot/common/component/news_tile.dart';
 import 'package:tot/common/const/colors.dart';
 import 'package:tot/common/data/BookmarkCache.dart';
 import 'package:tot/common/data/news_data.dart';
 import 'package:tot/common/data/news_tile_data.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../layout/default_layout.dart';
 import 'package:tot/common/const/padding.dart';
-import '../view/news_detail_view.dart';
 import 'package:tot/common/const/tot_custom_icons_icons.dart';
 
 class NewsDetailHead extends StatefulWidget {
@@ -161,9 +158,11 @@ class _NewsDetailHeadState extends State<NewsDetailHead> {
               Spacer(),
               GestureDetector(
                   onTap: () {
-                    launchUrl(Uri.parse(
-                      'https://www.mk.co.kr/news/economy/${widget.id}',
-                    ), mode: LaunchMode.externalApplication);
+                    launchUrl(
+                        Uri.parse(
+                          'https://www.mk.co.kr/news/economy/${widget.id}',
+                        ),
+                        mode: LaunchMode.externalApplication);
                   },
                   child: Icon(
                     Icons.link,

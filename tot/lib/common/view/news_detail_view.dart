@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tot/common/component/news_detail_pie_chart.dert.dart';
-import 'package:tot/common/component/news_tile.dart';
 import 'package:tot/common/const/colors.dart';
 import 'package:tot/common/component/news_detail_head.dart';
 import 'package:tot/common/data/API.dart';

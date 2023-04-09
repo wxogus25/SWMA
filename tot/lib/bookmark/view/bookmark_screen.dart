@@ -7,12 +7,10 @@ import 'package:get/get.dart';
 import 'package:tot/common/component/news_tile.dart';
 import 'package:tot/common/const/colors.dart';
 import 'package:tot/common/const/padding.dart';
-import 'package:tot/common/data/API.dart';
 import 'package:tot/common/data/BookmarkCache.dart';
 import 'package:tot/common/data/news_tile_data.dart';
 import 'package:tot/common/view/first_page_view.dart';
 import 'package:tot/common/view/root_tab.dart';
-import 'package:transition/transition.dart' as tr;
 
 class BookmarkScreen extends StatefulWidget {
   const BookmarkScreen({Key? key}) : super(key: key);
@@ -87,7 +85,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                   ],
                 );
               }
-              return NewsTile.fromData(_list[i - 1], fix : true);
+              return NewsTile.fromData(_list[i - 1], fix: true);
             },
             separatorBuilder: (context, i) {
               if (i == 0) return SizedBox.shrink();

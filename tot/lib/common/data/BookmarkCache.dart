@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:tot/common/component/news_tile.dart';
 import 'package:tot/common/data/API.dart';
 import 'package:tot/common/data/news_tile_data.dart';
 
@@ -28,7 +27,7 @@ class BookmarkCache extends GetxController {
     await tokenCheck(() => API.deleteBookmarkById(id));
   }
 
-  bool contain(int id){
+  bool contain(int id) {
     return bookmarks.any((element) => element.id == id);
   }
 }

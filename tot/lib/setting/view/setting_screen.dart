@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
@@ -66,7 +65,8 @@ class _SettingScreenState extends State<SettingScreen> {
                         await FirebaseMessaging.instance.getToken();
                     await AppController.storage
                         .write(key: "fcmToken", value: fcmToken);
-                    await tokenCheck(() => API.updateNotificationSetting(fcmToken));
+                    await tokenCheck(
+                        () => API.updateNotificationSetting(fcmToken));
                   } else {
                     await AppController.storage
                         .write(key: "fcmToken", value: "");
@@ -102,7 +102,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 } else {
                   Future.delayed(
                     Duration.zero,
-                        () => showPlatformDialog(
+                    () => showPlatformDialog(
                       context: context,
                       builder: (_) => PlatformAlertDialog(
                         title: Text(
@@ -114,7 +114,10 @@ class _SettingScreenState extends State<SettingScreen> {
                             onPressed: () => Get.back(),
                           ),
                           PlatformDialogAction(
-                            child: PlatformText("로그아웃", style: TextStyle(color: Colors.red),),
+                            child: PlatformText(
+                              "로그아웃",
+                              style: TextStyle(color: Colors.red),
+                            ),
                             onPressed: () async {
                               pd.show(max: 100, msg: '로그아웃 하는 중...');
                               pd.update(value: 25);
@@ -127,8 +130,8 @@ class _SettingScreenState extends State<SettingScreen> {
                               BookmarkCache.to.bookmarks.clear();
                               userFilterKey = {};
                               pd.close();
-                              Future.delayed(
-                                  Duration.zero, () => Get.offAll(() => FirstPageView()));
+                              Future.delayed(Duration.zero,
+                                  () => Get.offAll(() => FirstPageView()));
                             },
                           ),
                         ],
@@ -162,14 +165,17 @@ class _SettingScreenState extends State<SettingScreen> {
                             onPressed: () => Get.back(),
                           ),
                           PlatformDialogAction(
-                            child: PlatformText("회원탈퇴", style: TextStyle(color: Colors.red),),
+                            child: PlatformText(
+                              "회원탈퇴",
+                              style: TextStyle(color: Colors.red),
+                            ),
                             onPressed: () async {
                               await tokenCheck(() => API.deleteUser());
                               await FirebaseAuth.instance.signOut();
                               await FirebaseAuth.instance.signInAnonymously();
                               await API.changeDioToken();
                               Future.delayed(Duration.zero,
-                                      () => Get.offAll(() => FirstPageView()));
+                                  () => Get.offAll(() => FirstPageView()));
                             },
                           ),
                         ],

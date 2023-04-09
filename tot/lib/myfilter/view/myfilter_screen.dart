@@ -14,8 +14,6 @@ import 'package:tot/common/data/cache.dart';
 import 'package:tot/common/data/news_tile_data.dart';
 import 'package:tot/common/view/first_page_view.dart';
 import 'package:tot/common/view/root_tab.dart';
-import 'package:tot/common/view/search_view.dart';
-import 'package:transition/transition.dart';
 
 class MyfilterScreen extends StatefulWidget {
   const MyfilterScreen({Key? key}) : super(key: key);
@@ -161,13 +159,13 @@ class _MyfilterScreenState extends State<MyfilterScreen> {
 
   Widget _list(ScrollController scrollController) {
     return FutureBuilder(
-      future: tokenCheck(
-          () => API.getNewsListByFilter(userFilterKey)),
+      future: tokenCheck(() => API.getNewsListByFilter(userFilterKey)),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
         }
-        if (userFilterKey["keywords"]!.isEmpty && userFilterKey["stocks"]!.isEmpty)
+        if (userFilterKey["keywords"]!.isEmpty &&
+            userFilterKey["stocks"]!.isEmpty)
           return _noData(true);
         else if (snapshot.data.isEmpty) return _noData(false);
         return Container(child: StatefulBuilder(
@@ -199,7 +197,7 @@ class _MyfilterScreenState extends State<MyfilterScreen> {
           if (_next.isNotEmpty) {
             data.addAll(_next);
             _controller.loadComplete();
-          }else{
+          } else {
             _controller.loadNoData();
           }
           setter(() {});
@@ -230,7 +228,7 @@ class _MyfilterScreenState extends State<MyfilterScreen> {
       child: MultipleSearchSelection<_Keyword>(
         clearSearchFieldOnSelect: true,
         pickedItemsContainerMaxHeight: 80.h,
-        maximumShowItemsHeight:300.h,
+        maximumShowItemsHeight: 300.h,
         title: Container(
           color: Colors.transparent,
           width: double.infinity,
@@ -267,8 +265,8 @@ class _MyfilterScreenState extends State<MyfilterScreen> {
           return c.name;
         },
         itemBuilder: (_keyword) {
-          if(userFilterKey[_keyword.isStock ? "stocks" : "keywords"]!.contains(_keyword.name))
-            return Container();
+          if (userFilterKey[_keyword.isStock ? "stocks" : "keywords"]!
+              .contains(_keyword.name)) return Container();
           return Padding(
             padding: EdgeInsets.fromLTRB(6.0.w, 6.h, 6.w, 6.h),
             child: Container(
@@ -314,7 +312,8 @@ class _MyfilterScreenState extends State<MyfilterScreen> {
                     ),
                     Text(
                       '  ×',
-                      style: TextStyle(fontSize: 15.sp, color: SMALL_FONT_COLOR),
+                      style:
+                          TextStyle(fontSize: 15.sp, color: SMALL_FONT_COLOR),
                     ),
                   ],
                 ),

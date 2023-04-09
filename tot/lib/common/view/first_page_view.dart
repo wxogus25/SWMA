@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -128,13 +127,16 @@ class FirstPageView extends StatelessWidget {
           SizedBox(
             height: 30.h,
           ),
-          TextButton(onPressed: _naviToRootTab, child: Text(
-            "게스트로 로그인",
-            style: TextStyle(
-                fontSize: 24.sp,
-                fontWeight: FontWeight.w400,
-                color: PRIMARY_COLOR),
-          ),),
+          TextButton(
+            onPressed: _naviToRootTab,
+            child: Text(
+              "게스트로 로그인",
+              style: TextStyle(
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w400,
+                  color: PRIMARY_COLOR),
+            ),
+          ),
         ],
       ),
     );

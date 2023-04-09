@@ -45,4 +45,6 @@ app.*.map.json
 tot/android/app/
 google-services.json
 firebase_options.dart
+GoogleService-Info.plist
+Info.plist
 secure.dart
